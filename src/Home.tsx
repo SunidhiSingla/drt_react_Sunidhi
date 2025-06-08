@@ -93,6 +93,10 @@ const Home: React.FC = () => {
   const [noradSearch, setNoradSearch] = useState("");
   const [selectedRows, setSelectedRows] = useState<unknown[]>([]);
   const MAX_SELECTION = 10;
+  const [gridApi, setGridApi] = useState<any>(null);
+  const onGridReady = (params: any) => {
+    setGridApi(params.api);
+  };
   const navigate = useNavigate();
 
   const handleProceed = () => {
@@ -161,6 +165,21 @@ const Home: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (!gridApi || !filteredData) return;
+    const saved = localStorage.getItem('selectedRows');
+    if (saved) {
+      const savedRows = JSON.parse(saved);
+      gridApi.forEachNode((node: any) => {
+        if (savedRows.some((row: any) => row.noradCatId === node.data.noradCatId)) {
+          node.setSelected(true);
+        }
+      });
+      setSelectedRows(savedRows);
+    }
+  }, [gridApi, filteredData]);
+
+
   const columnDefs = useMemo(
     () => [
       {
@@ -168,7 +187,6 @@ const Home: React.FC = () => {
         field: "name",
         sortable: true,
         flex: 1,
-        headerCheckboxSelection: true,
         checkboxSelection: true,
       },
       {
@@ -253,6 +271,7 @@ const Home: React.FC = () => {
     }
 
     setSelectedRows(selected);
+    localStorage.setItem('selectedRows', JSON.stringify(selected));
   };
 
   return (
@@ -334,6 +353,7 @@ const Home: React.FC = () => {
         <AgGridReact
           ref={gridRef}
           rowData={filteredData}
+          onGridReady={onGridReady}
           columnDefs={columnDefs}
           rowBuffer={5} 
           defaultColDef={defaultColDef}
