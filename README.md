@@ -32,6 +32,6 @@ A React + TypeScript application for visualizing large satellite datasets using 
 
 ```bash
 git clone https://github.com/SunidhiSingla/drt_react_Sunidhi.git
-cd satellite-dashboard
+cd drt_react_Sunidhi
 npm install
 npm run dev
