@@ -147,7 +147,7 @@ const Home: React.FC = () => {
       } else {
         try {
           const res = await fetch(
-            "https://backend.digantara.dev/v1/satellites?attributes=name%2CnoradCatId%2ClaunchDate%2CcountryCode%2CorbitCode%2CobjectType"
+            "/v1/satellites?attributes=name%2CnoradCatId%2ClaunchDate%2CcountryCode%2CorbitCode%2CobjectType"
           );
           const json = await res.json();
           const cleaned = json.data.map((item: SatelliteData) => ({

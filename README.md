@@ -3,14 +3,14 @@
 A React + TypeScript application for visualizing large satellite datasets using AG Grid with powerful features like:
 
 - Multi-select filters
-- Search (partial match on name & NORAD Cat ID)
+- Search (partial match on name & NORAD ID)
 - Sorting - For Sorting click on the title of column.
      Upward arrow means ascending order ![image](https://github.com/user-attachments/assets/3a302f29-e332-4684-ae39-b21e086a0bd7)
      Downward arrow means descending order ![image](https://github.com/user-attachments/assets/50368eb3-171c-4ecf-83c4-c285e43d6bbb)
 - IndexDB caching to improve performance
 - Row selection (max 10) with Proceed screen - Selected row data persists on page refresh
 - Fully responsive UI
-- React Router has been used for routing.
+
 ---
 
 ## 🛠 Tech Stack
