@@ -25,6 +25,7 @@ A React + TypeScript application for visualizing large satellite datasets using 
 ![image](https://github.com/user-attachments/assets/a3aedff9-7812-4191-b1da-5ab359ab8b34)
 ![image](https://github.com/user-attachments/assets/b7077ede-8ed1-4e8c-80d6-df67523165ce)
 ![image](https://github.com/user-attachments/assets/6d34e89e-ec95-42ec-ad01-84cc2f286ad0)
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
